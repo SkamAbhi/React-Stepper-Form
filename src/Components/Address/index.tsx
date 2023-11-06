@@ -1,11 +1,11 @@
 import CustomButton from "../../ReusableElements/Button";
 import CustomInput from "../../ReusableElements/Input";
-import { useStyletron } from "styletron-react";
+import { useStyletron } from "baseui";
 import { useStepper } from "../../StepperContext";
 
 export default function Address() {
   const [css] = useStyletron();
-  const { setStep, userData, setUserData, submitData } = useStepper();
+  const { setStep, userData, setUserData } = useStepper();
 
   return (
     <div
@@ -44,10 +44,9 @@ export default function Address() {
         })}
       >
         <CustomButton
-          name={"Submit"}
-          to={"/preview"}
+          name={"Next"}
+          to={"/pictureupload"}
           onClick={() => {
-            submitData();
             setStep(2);
           }}
         />

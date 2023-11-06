@@ -54,7 +54,12 @@ const Name = () => {
           label={"Last Name"}
           value={userData["lastName"]}
         />
+        <div className={css({
+          display:'flex',
+          justifyContent:'center'
+        })}>
         <CustomButton name="Next" onClick={handleNextClick} to={"/address"} />
+        </div>
       </form>
     </div>
   );

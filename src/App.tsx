@@ -5,11 +5,26 @@ import Address from "./Components/Address";
 import Stepper from "./Components/Stepper";
 import { StepperProvider } from "./StepperContext";
 import Preview from "./Components/Preview";
+import PicUpload from "./Components/PicUpload";
 
 function App() {
   const [css] = useStyletron();
   return (
     <StepperProvider>
+      <div className={css({
+         display:'flex',
+         flexDirection:'column',
+         justifyContent:'center',
+         alignItems:'center',
+         marginTop:'50px'
+      })}>
+      <div
+       className={css({
+       border: "2px solid black",
+       borderRadius:'30px',
+       maxWidth:'1000px',
+       padding:'10px'
+      })}>
       <div
         className={css({
           display: "flex",
@@ -23,22 +38,27 @@ function App() {
       <div
         className={css({
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           gap: "30px",
         })}
       >
-        <Stepper />
+        <div>
+          <Stepper />
+        </div>
         <Router>
           <div className={css({})}>
             <Routes>
               <Route path="/" element={<Name />} />
               <Route path="/address" element={<Address />} />
+              <Route path="/pictureupload" element={<PicUpload />} />
               <Route path="/preview" element={<Preview />} />
             </Routes>
           </div>
         </Router>
+      </div>
+      </div>
       </div>
     </StepperProvider>
   );
